@@ -2,9 +2,10 @@
 <head>
 	<meta charset="utf-8" />
 	<title></title>
-	<link rel="stylesheet" href="http://cdn.foundation5.zurb.com/foundation.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
 	<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.8/slick-theme.css"/>
+	<link rel="stylesheet" type="text/css" href="/user_guide/_static/css/login.css" />
 	<script type="text/javascript">
 	</script>
 	<style type="text/css">
@@ -74,285 +75,197 @@
 	.newusers {
 	  background: #fff;
 	}
-</style>
+	.carousel_picture{
+		height:500px;
+		width:500px;
+	}
+</style>	
 </head>
 <body>
-<div class="row">
-        <div class="large-3 columns">
-          <h1><img src="http://placehold.it/400x100&text=Logo"/></h1>
-        </div>
-        <div class="large-9 columns">
-          <ul class="right button-group">
-          <li><a href="#" class="button">Link 1</a></li>
-          <li><a href="#" class="button">Link 2</a></li>
-          <li><a href="#" class="button paulund_modal_3">Log In</a></li>
-          <li><a href="#" class="button paulund_modal_2">Register</a></li>
+	<div id="fb-root"></div>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<body>
+
+<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Login dropdown</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
           </ul>
-         </div>
-       </div>
-      
-     
-     
-     
-     
-   	<!-- Slick slider -->
-	<div class="slider">
-		<div class="slick-slide">
-			<div class="feature">
-				<div class="wishlist">
-				<div class="share-buttons">
-					<span class="share-facebook">
-					</span>
-				</div>
-				</div>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><p class="navbar-text">Already have an account?</p></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
+			<ul id="login-dp" class="dropdown-menu">
+				<li>
+					 <div class="row">
+							<div class="col-md-12">
+								Login via
+								<div class="social-buttons">
+									<div class='fb-login-button' data-max-rows='1' data-size='large' data-show-faces='false' data-auto-logout-link='false'></div>  
+									<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+								</div>
+                                or
+								 <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
+											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+										</div>
+										<div class="form-group">
+											 <label class="sr-only" for="exampleInputPassword2">Password</label>
+											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+										</div>
+										<div class="form-group">
+											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+										</div>
+										<div class="checkbox">
+											 <label>
+											 <input type="checkbox"> keep me logged-in
+											 </label>
+										</div>
+								 </form>
+							</div>
+							<div class="bottom text-center">
+								New here ? <a href="#"><b>Join Us</b></a>
+							</div>
+					 </div>
+				</li>
+			</ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button> -->
+<div id="status"></div>
+<div class="container">
+	<div class="row">
+		<!-- Carousel -->
+    	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+			  	<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			</ol>
+			<!-- Wrapper for slides -->
+			<div class="carousel-inner carousel_picture">
+			    <div class="item active centered">
+			    	<img class="carousel_picture" src="/user_guide/_images/beard.jpg">
+                    <!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                            	<span>Welcome to <strong>LOREM IPSUM</strong></span>
+                            </h2>
+                            <br>
+                            <h3>
+                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            </h3>
+                            <br>
+                            <div class="">
+                                <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block" href="#">Register</a></div>
+                        </div>
+                    </div><!-- /header-text -->
+			    </div>
+			    <div class="item">
+			    	<img src="/user_guide/_images/swiss.jpg">
+			    	<!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                                <span>Welcome to LOREM IPSUM</span>
+                            </h2>
+                            <br>
+                            <h3>
+                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            </h3>
+                            <br>
+                            <div class="">
+                                <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block" href="#">Register</a></div>
+                        </div>
+                    </div><!-- /header-text -->
+			    </div>
+			    <div class="item">
+			    	<img src="/user_guide/_images/soap.jpg">
+			    	<!-- Static Header -->
+                    <div class="header-text hidden-xs">
+                        <div class="col-md-12 text-center">
+                            <h2>
+                                <span>Welcome to LOREM IPSUM</span>
+                            </h2>
+                            <br>
+                            <h3>
+                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                            </h3>
+                            <br>
+                            <div class="">
+                                <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block" href="#">Register</a></div>
+                        </div>
+                    </div><!-- /header-text -->
+			    </div>
 			</div>
-			<div class="feature">
-				<div class="wishlist">
-				<div class="share-buttons">
-					<span class="share-twitter">
-					</span>
-				</div>
-				</div>
-			</div>
-			<div class="feature">
-				<div class="wishlist">
-				<div class="share-buttons">
-					<span class="share-pinterest">
-					</span>
-				</div>
-				</div>
-			</div>
-			<h3>
-	  			<img src="/user_guide/_images/beard.jpg">
-			</h3>
-		</div>
-		<div class="slick-slide">
-				<div class="wishlist">
-				<div class="share-buttons">
-					<span class="share-facebook">
-					</span>
-				</div>
-				</div>
-			<div class="feature">
-				<div class="wishlist">
-				<div class="share-buttons">
-					<span class="share-twitter">
-					</span>
-				</div>
-				</div>
-			</div>
-			<div class="feature">
-				<div class="wishlist">
-				<div class="share-buttons">
-					<span class="share-pinterest">
-					</span>
-				</div>
-				</div>
-			</div>
-	  		<h3>
-		  		<img src="/user_guide/_images/soap.jpg">
-			</h3>
-		</div>
-	  <div class="slick-slide">
-				<div class="wishlist">
-				<div class="share-buttons">
-					<span class="share-facebook">
-					</span>
-				</div>
-				</div>
-			<div class="feature">
-				<div class="wishlist">
-				<div class="share-buttons">
-					<span class="share-twitter">
-					</span>
-				</div>
-				</div>
-			</div>
-			<div class="feature">
-				<div class="wishlist">
-				<div class="share-buttons">
-					<span class="share-pinterest">
-					</span>
-				</div>
-				</div>
-			</div>
-		  	<h3>
-		  		<img src="/user_guide/_images/adapter.jpg">
-		  	</h3>
-		</div>
-		  <div class="slick-slide">
-					<div class="wishlist">
-					<div class="share-buttons">
-						<span class="share-facebook">
-						</span>
-					</div>
-					</div>
-				<div class="feature">
-					<div class="wishlist">
-					<div class="share-buttons">
-						<span class="share-twitter">
-						</span>
-					</div>
-					</div>
-				</div>
-				<div class="feature">
-					<div class="wishlist">
-					<div class="share-buttons">
-						<span class="share-pinterest">
-						</span>
-					</div>
-					</div>
-				</div>
-			<h3>
-				<img src="/user_guide/_images/swiss.jpg">
-			</h3>
-		</div>
-		  <div class="slick-slide">
-					<div class="wishlist">
-					<div class="share-buttons">
-						<span class="share-facebook">
-						</span>
-					</div>
-					</div>
-				<div class="feature">
-					<div class="wishlist">
-					<div class="share-buttons">
-						<span class="share-twitter">
-						</span>
-					</div>
-					</div>
-				</div>
-				<div class="feature">
-					<div class="wishlist">
-					<div class="share-buttons">
-						<span class="share-pinterest">
-						</span>
-					</div>
-					</div>
-				</div>
-		  	<h3>
-		  		<img src="/user_guide/_images/yoga.jpg">
-		  	</h3>
-		</div>
-	  <!-- <div class="uno"><h3><img src="#"></h3></div> -->
+			<!-- Controls -->
+			<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+		    	<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+		    	<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
+		</div><!-- /carousel -->
 	</div>
-	<!-- end slick slider -->
-
-	<div class="products col sm6">
-
-	</div>
-      
-     
-     
-      <div class="row">
-        <div class="large-4 columns">
-          <img src="http://placehold.it/400x300&text=[img]"/>
-          <h4>This is a content section.</h4>
-          <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-        </div>
-        
-        <div class="large-4 columns">
-          <img src="http://placehold.it/400x300&text=[img]"/>
-          <h4>This is a content section.</h4>
-          <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-        </div>
-        
-        <div class="large-4 columns">
-          <img src="http://placehold.it/400x300&text=[img]"/>
-          <h4>This is a content section.</h4>
-          <p>Bacon ipsum dolor sit amet nulla ham qui sint exercitation eiusmod commodo, chuck duis velit. Aute in reprehenderit, dolore aliqua non est magna in labore pig pork biltong. Eiusmod swine spare ribs reprehenderit culpa. Boudin aliqua adipisicing rump corned beef.</p>
-        </div>
-      
-        </div>
-        
-     
-    <div class="row">
-        <div class="large-12 columns">
-        
-          <div class="panel">
-            <h4>Get in touch!</h4>
-                
-            <div class="row">
-              <div class="large-9 columns">
-                <p>We'd love to hear from you, you attractive person you.</p>
-              </div>
-              <div class="large-3 columns">
-                <a href="#" class="radius button right">Contact Us</a>
-              </div>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-     
-       
-      
-      <footer class="row">
-        <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-6 columns">
-              <p>© Copyright no one at all. Go to town.</p>
-            </div>
-            <div class="large-6 columns">
-              <ul class="inline-list right">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
-              </ul>
-            </div>
-          </div>
-        </div> 
-      </footer>
-    
-	<!-- end log in button -->
+</div>
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
-<script type="text/javascript" src="http://cdn.foundation5.zurb.com/foundation.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="/user_guide/_static/js/jquery.paulund_modal_box.js"></script>
 <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	$('.slider').slick({
-		infinite: true,
-		slidesToShow: 2,
-		centerMode: true,
-		centerPadding: '60px',
-		autoplay: true,
-		autoplaySpeed: 3000,
-		responsive: [
-	    {
-	      breakpoint: 768,
-	      settings: {
-	        arrows: false,
-	        centerMode: true,
-	        centerPadding: '40px',
-	        slidesToShow: 3
-	      }
-	    },
-	    {
-	      breakpoint: 480,
-	      settings: {
-	        arrows: false,
-	        centerMode: true,
-	        centerPadding: '40px',
-	        slidesToShow: 1
-	      }
-	    }
-	  ]
+	$.post("main/login", $(this).serialize(), function(result){
+		console.log(result);
 	});
-	$('.paulund_modal').paulund_modal_box();
-	$('.paulund_modal_2').paulund_modal_box({
-		title:'Register',
-		description:"<input type='text' value='hi'>"
-	});
-	$('.paulund_modal_3').paulund_modal_box({
-		title:'Sign In'
 	});
 
-	});
+	
 </script>
+	<?php $this->load->view("test");
+	 ?>
+
+
 </body>
 </html>

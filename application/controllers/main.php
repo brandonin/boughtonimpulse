@@ -12,4 +12,10 @@ class main extends CI_Controller {
 	{
 		$this->load->view('dashboard');
 	}
+	public function register(){
+
+	}
+	public function login(){
+		
+	}
 }
