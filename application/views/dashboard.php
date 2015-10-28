@@ -249,6 +249,14 @@
 	</div>
 </div>
 
+<?php 
+foreach($data as $fuckme)
+{ 
+	?>
+	<iframe src='<?= $fuckme['url']; ?>'></iframe>
+<?php 
+	}
+ ?>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
