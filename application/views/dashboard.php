@@ -79,12 +79,24 @@
 		height:500px;
 		width:500px;
 	}
+	div#status_infinite{
+		position:fixed; 
+		font-size:24px;
+	}
+	div#wrap_infinite{
+		width:1000px; 
+		margin:0px auto;
+	}
+	div.newData{
+/*		height:1000px; 
+		background:#09F;*/
+		margin:10px 0px;
+	}
 </style>	
 </head>
 <body>
 	<div id="fb-root"></div>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-<body>
 
 <nav class="navbar navbar-default navbar-inverse" role="navigation">
   <div class="container-fluid">
@@ -248,25 +260,48 @@
 		</div><!-- /carousel -->
 	</div>
 </div>
-
+<!-- 
 <?php 
-foreach($data as $fuckme)
+for($i = 0; $i< count($data); $i++)
 { 
-	?>
-	<iframe src='<?= $fuckme['url']; ?>'></iframe>
-<?php 
+	echo $data[$i]['url'];
 	}
  ?>
+ -->
+ <div id="status_infinite">0 | 0</div>
+<div id="wrap_infinite"> 
+<?php for($i = 0; $i< count($test); $i++)
+{ ?>
+	<img src='<?= $test[$i]['url'] ?>'>
+<?php
+	}
+ ?>
+</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script src="/user_guide/_static/js/jquery.paulund_modal_box.js"></script>
-<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.slick/1.5.8/slick.min.js"></script>
+<script type="text/javascript" src="/user_guide/_static/js/waypoint.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-	$.post("main/login", $(this).serialize(), function(result){
-		console.log(result);
-	});
+
+		function yHandler(){
+	// Watch video for line by line explanation of the code
+	// http://www.youtube.com/watch?v=eziREnZPml4
+	var wrap = document.getElementById('wrap_infinite');
+	var contentHeight = wrap.offsetHeight;
+	var yOffset = window.pageYOffset; 
+	var y = yOffset + window.innerHeight;
+	if(y >= contentHeight){
+		// Ajax call to get more dynamic data goes here
+		$.get('/main/get_page_content', function(res){ 
+			wrap.innerHTML += '<div class="newData">'+res+'</div>';
+		});
+		
+	}
+	var status = document.getElementById('status_infinite');
+	status.innerHTML = contentHeight+" | "+y;
+}
+window.onscroll = yHandler;
 	});
 
 	

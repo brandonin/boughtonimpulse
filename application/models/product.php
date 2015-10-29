@@ -8,6 +8,10 @@ class product extends CI_Model {
 		$query = "SELECT * FROM affiliates";
 		return $this->db->query($query)->result_array();
 	}
+	public function test(){
+		$query = "SELECT url FROM test";
+		return $this->db->query($query)->result_array();
+	}
 
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class main extends CI_Controller {
+class Main extends CI_Controller {
 
 	public function __construct(){
 			parent::__construct();
@@ -11,10 +11,8 @@ class main extends CI_Controller {
 
 	public function index()
 	{
-		$data = $this->product->get_all_affiliates();
-		$data = array(
-			'data' => $data
-			);
+		$data['affiliates'] = $this->product->get_all_affiliates();
+		$data['test'] = $this->product->test();
 		$this->load->view('dashboard', $data);
 	}
 	public function register(){
@@ -24,7 +22,9 @@ class main extends CI_Controller {
 		
 	}
 	public function get_page_content(){
-		$data = $this->product->get_all_affiliates();
+		$data['affiliates'] = $this->product->get_all_affiliates();
+		$data['test'] = $this->product->test();		
+		$this->load->view('partials/products', $data);
 	}
 }
 
