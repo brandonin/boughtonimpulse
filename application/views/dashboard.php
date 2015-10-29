@@ -93,7 +93,7 @@
 		margin:10px 0px;
 	}
 	#status{
-		margin-left:80%;
+		margin-left:80 %;
 	}
 </style>	
 </head>
@@ -375,7 +375,7 @@ for($i = 0; $i< count($data); $i++)
 	if(y >= contentHeight){
 		// Ajax call to get more dynamic data goes here
 		$.get('/main/get_page_content', function(res){ 
-			// wrap.innerHTML += '<div class="newData">'+res+'</div>';
+			wrap.innerHTML += '<div class="newData">'+res+'</div>';
 		});
 		
 	}

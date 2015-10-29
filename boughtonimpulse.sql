@@ -1,1 +1,1 @@
-SELECT * FROM boughtonimpulse.Affiliates;
+SELECT * FROM boughtonimpulse.users;
