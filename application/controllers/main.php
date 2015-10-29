@@ -15,10 +15,32 @@ class Main extends CI_Controller {
 		$data['test'] = $this->product->test();
 		$this->load->view('dashboard', $data);
 	}
-	public function register(){
+	public function create()
+	{
+
+		// var_dump($this->input->post());
+		// die();
+		$result=$this->product->create_user($this->input->post());
+		if(is_numeric ($result)){
+			$this->session->set_userdata('user_id', $result);
+			redirect('/');
+		} else {
+			$this->session->set_flashdata('regis_errors', $result);
+			redirect('/');
+		}
 
 	}
-	public function login(){
+	public function login()
+	{
+
+		$result = $this->product->login_user($this->input->post());
+		if(is_numeric($result)){
+			$this->session->set_userdata('user_id',$result);
+			redirect('/');
+		}else{
+			$this->session->set_flashdata('login_errors', $result);
+			redirect('/');
+		}
 		
 	}
 	public function get_page_content(){

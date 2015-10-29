@@ -6,6 +6,16 @@
 </head>
 <body>
 <script>
+ // Load the SDK asynchronously
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+
+
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -16,10 +26,52 @@
     // for FB.getLoginStatus().
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
-      testAPI();
+      console.log('Welcome!  Fetching your information.... ');
+      FB.api('/me', { locale: 'en_US', fields: 'name, email' },function(res) {  
+        console.log(JSON.stringify(res));
+          console.log('Successful login for: ' + res.name);
+          document.getElementById('status').innerHTML =
+          'You are logged in, ' + res.name + '!';
+
+        console.log('response info',res);
+        var full_name = res.name.split(" ");
+        var first_name = full_name[0];
+        var last_name = full_name[1];
+        var name = res.name;
+          var uid = response.authResponse.userID;
+        var accessToken = response.authResponse.accessToken;
+        var email = res.email;
+
+        // $("#fb_info").append("<input type='hidden' name='uid' value='"+uid+"'>");
+        // $("#fb_info").append("<input type='hidden' name='accessToken' value='"+accessToken+"'>");
+        // $("#fb_info").append("<input type='hidden' name='email' value='"+email+"'>");
+        // $("#fb_info").submit();
+
+
+        $.ajax({
+          type: "POST",
+        url: "/users/login",
+        data: {uid: uid, accessToken: accessToken, email: email},
+        success: function(res){
+          console.log(res);
+          // document.getElementById('status').innerHTML = 'You are logged in, ' + name + '!';
+          $("#status").html('You are logged in, ' + name + '!');
+        },
+        dataType: 'json'
+      });
+
+        // $('._4z_f fwb').click(function(){
+        //  console.log('logging out');
+        //  FB.logout(function(response) {
+        //       // Person is now logged out
+        //       document.getElementById('status').innerHTML = 'Please log ' +
+        //       'into this app.';
+        //   });
+        // })
+      });
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
-      document.getElementById('status').innerHTML = 'Please log ' +
+        document.getElementById('status').innerHTML = 'Please log ' +
         'into this app.';
     } else {
       // The person is not logged into Facebook, so we're not sure if
@@ -28,8 +80,6 @@
         'into Facebook.';
     }
   }
-
-
 
   // This function is called when someone finishes with the Login
   // Button.  See the onlogin handler attached to it in the sample
@@ -42,7 +92,7 @@
 
   window.fbAsyncInit = function() {
   FB.init({
-    appId      : '152461691775620',
+    appId      : '910814989010001',
     cookie     : true,  // enable cookies to allow the server to access 
                         // the session
     xfbml      : true,  // parse social plugins on this page
@@ -61,31 +111,30 @@
   //
   // These three cases are handled in the callback function.
 
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-
+  // FB.getLoginStatus(function(response) {
+  //  console.log('getting log in state');
+  //   statusChangeCallback(response);
+  // });
+  checkLoginState();
   };
-  // Load the SDK asynchronously
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
+
+
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-    	console.log(response);
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
+    // function testAPI() {
+    //   console.log('Welcome!  Fetching your information.... ');
+    //   FB.api('/me', { locale: 'en_US', fields: 'name, email' },function(response) {
+    //     console.log('Successful login for: ' + response.email);
+    //     document.getElementById('status').innerHTML =
+    //       'You are logged in, ' + response.name + '!';
+    //       return response;
+      
+    //   });
+    // }
+
+
+
 </script>
 
 <!--
@@ -93,12 +142,8 @@
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-<!-- 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
- -->
-<div id="status">
-</div>
+
+
 
 </body>
 </html>
