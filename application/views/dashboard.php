@@ -48,6 +48,9 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form> -->
       <ul class="nav navbar-nav navbar-right">
+      	<li>
+      		<div class="fb-like" data-href="https://www.facebook.com/boughtonimpulse/?fref=ts" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+      	</li>
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Register</b> <span class="caret"></span></a>
 			<ul id="login-dp" class="dropdown-menu">
@@ -309,12 +312,6 @@ window.onscroll = yHandler;
 			console.log(res);
 		});
 		$(".email_subscription").hide();
-		return false;
-	});
-	$(".register").submit(function(){
-		$.get("/main/login", function(res){
-			console.log(res);
-		});
 		return false;
 	});
 	});

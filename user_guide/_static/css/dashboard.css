@@ -72,7 +72,7 @@
 		margin-left:80%;
 	}
 	.email_subscription{
-		margin-left: 25%;
+		margin-left: -15%;
 		padding:10px;
 		margin-top:50%;
 		width:280px;
@@ -148,5 +148,8 @@
 		color: yellow;
 	}
 	.adsbygoogle{
-		margin-left:200px;
+		margin: 50px;
+	}
+	.fb-like{
+		width:150px;
 	}
