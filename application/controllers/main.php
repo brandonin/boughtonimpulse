@@ -7,6 +7,7 @@ class Main extends CI_Controller {
 			parent::__construct();
 			// $this->output->enable_profiler(TRUE);
 			$this->load->model('product');
+			$this->load->model('user');
 	}
 
 	public function index()
@@ -46,7 +47,10 @@ class Main extends CI_Controller {
 	public function get_page_content(){
 		$data['affiliates'] = $this->product->get_all_affiliates();
 		$data['test'] = $this->product->test();		
-		$this->load->view('partials/products', $data);
+		$this->load->view('partials/page2', $data);
+	}
+	public function email_subscription(){
+		$this->user->email_subscription($this->input->post());
 	}
 }
 

@@ -3,127 +3,14 @@
 	<meta charset="utf-8" />
 	<title></title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.7/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.8/slick-theme.css"/>
 	<link rel="stylesheet" type="text/css" href="/user_guide/_static/css/login.css" />
-	<script type="text/javascript">
-	</script>
-	<style type="text/css">
-	.carousel {
-		width:500px;
-		display:inline-block;
-		margin-left:100px;
-	}
-	.auth-plain {
-	  padding-right: 0px;
-	  padding-left: 0px;
-	  padding-top: 0px;
-	}
-
-	.left-solid {
-	margin-top: 0px;
-	margin-bottom: 0px;
-	}
-
-	.signup-panel {
-	  border-radius: 5px;
-	  padding: 15px;
-	  margin-top: 30px;
-	  margin-bottom: 30px;
-	  background: #fff;
-	}
-
-	.signup-panel a{
-	  color: #fff;
-	}
-
-	.signup-panel i {
-	  font-size: 30px;
-	  line-height: 50px;
-	  color: #999;
-	}
-	.signup-panel form input, .signup-panel form span {
-	  height: 50px;
-	}
-	.signup-panel .welcome {
-	  font-size: 26px;
-	  text-align: center;
-	  margin-left: 0;
-	}
-	.signup-panel p {
-	  font-size: 13px;
-	  font-weight: 200;
-	  text-align: center;
-	}
-	.signup-panel .button {
-	  margin-left: 35%;
-	}
-
-	.newusers {
-	  background: #fff;
-	}
-	.carousel_picture{
-		height:500px;
-		width:500px;
-	}
-	div#status_infinite{
-		position:fixed; 
-		font-size:24px;
-	}
-	div#wrap_infinite{
-		width:1200px; 
-		margin:20px 20px 20px 80px;
-	}
-	div.newData{
-/*		height:1000px; 
-		background:#09F;*/
-		margin:20px;
-	}
-	#status{
-		margin-left:80%;
-	}
-	.email_subscription{
-		margin-left: 25%;
-		padding:10px;
-		margin-top:50%;
-		width:280px;
-		display:inline-block;
-		height:80px;
-		background-color: orange;
-		position: fixed;
-	}
-	.products{
-		padding:20px;
-	}
-	.close{
-		opacity:100;
-		height:25px;
-		width:25px;
-	}
-	.closed{
-
-	}
-	.affiliates_image{
-		margin:10px;
-		height:300px;
-		width: 300px;
-	}
-	.affiliates{
-		display:inline-block;
-	}
-	.affiliates_label{
-		width: 300px;
-		text-align: center;
-		display:block;
-		font-size: 1.5em;
-	}
-</style>	
+	<link rel="stylesheet" type="text/css" href="/user_guide/_static/css/dashboard.css">
 </head>
 <body>
 	<div id="fb-root"></div>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-<nav class="navbar navbar-default navbar-inverse" role="navigation">
+<nav class="navbar navbar-default orange" role="navigation">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -133,14 +20,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Login dropdown</a>
+      <h4 class="navbar-brand yellow">Bought On</h4>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><img id="logo" src="http://img1.webring.com/r/i/impulse/logo"></li>
+        <!-- <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
@@ -152,14 +39,14 @@
             <li class="divider"></li>
             <li><a href="#">One more separated link</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
-      <form class="navbar-form navbar-left" role="search">
+<!--       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
-      </form>
+      </form> -->
       <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Register</b> <span class="caret"></span></a>
@@ -178,7 +65,7 @@
 									<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
 								</div>
                                 or -->
-								 <form class="form" action="main/create" method ="post"> 
+								 <form class="form register" action="main/create" method ="post"> 
 								 	<div class="form-group">
 								 		<input type = 'text' name='first_name' placeholder="First Name" required>
 								 	</div>
@@ -285,6 +172,7 @@
 <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button> -->
 <div id="status"></div>
+	<div class="box-shadow--16dp">
 	<div class="row carousel">
 		<!-- Carousel -->
     	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -297,25 +185,12 @@
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner carousel_picture">
 			    <div class="item active centered">
-			    	<img class="carousel_picture" src="/user_guide/_images/beard.jpg">
-                    <!-- Static Header -->
-                    <div class="header-text hidden-xs">
-                        <div class="col-md-12 text-center">
-                            <h2>
-                            	<span>Welcome to <strong>LOREM IPSUM</strong></span>
-                            </h2>
-                            <br>
-                            <h3>
-                            	<span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-                            </h3>
-                            <br>
-                            <div class="">
-                                <a class="btn btn-theme btn-sm btn-min-block" href="#">Login</a><a class="btn btn-theme btn-sm btn-min-block" href="#">Register</a></div>
-                        </div>
-                    </div><!-- /header-text -->
+			    	<a rel="nofollow" href="http://www.amazon.com/gp/product/B00FSAZWSM/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B00FSAZWSM&linkCode=as2&tag=boughtonimpul-20&linkId=5DXTVB7GO63AV5DM"><img class="carousel_picture" src="/user_guide/_images/beard.jpg"></a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=boughtonimpul-20&l=as2&o=1&a=B00FSAZWSM" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />                    <!-- Static Header -->
+
 			    </div>
 			    <div class="item">
-			    	<img src="/user_guide/_images/swiss.jpg">
+			    	<a rel="nofollow" href="http://www.amazon.com/gp/product/B0001EFSTI/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0001EFSTI&linkCode=as2&tag=boughtonimpul-20&linkId=F5MK35KRHCPDRCWS"><img src="/user_guide/_images/swiss.jpg"></a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=boughtonimpul-20&l=as2&o=1&a=B0001EFSTI" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -333,7 +208,7 @@
                     </div><!-- /header-text -->
 			    </div>
 			    <div class="item">
-			    	<img src="/user_guide/_images/soap.jpg">
+			    	<a rel="nofollow" href="http://www.amazon.com/gp/product/B0079KGZ76/ref=as_li_tl?ie=UTF8&camp=1789&creative=390957&creativeASIN=B0079KGZ76&linkCode=as2&tag=boughtonimpul-20&linkId=T2M6PKA2GB6DM6OF"><img src="/user_guide/_images/soap.jpg"></a><img src="http://ir-na.amazon-adsystem.com/e/ir?t=boughtonimpul-20&l=as2&o=1&a=B0079KGZ76" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
 			    	<!-- Static Header -->
                     <div class="header-text hidden-xs">
                         <div class="col-md-12 text-center">
@@ -361,11 +236,21 @@
 		</div><!-- /carousel -->
 	</div>
 
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- first ad -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:300px;height:600px"
+     data-ad-client="ca-pub-5539928420238963"
+     data-ad-slot="3108916336"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
 <div class="email_subscription">
-	<form action="#" method="post">
+	<form action="/main/email_subscription" method="post">
 		<label for="email"><span class="spooky">Sign up to our Spooky weekly email list!</span></label>
 		<input type="email" name="email" placeholder="email">
-		<input type="submit" value="Sign Up!">
+		<input type="submit" value="Sign Up!" class="email_button">
 		<button class="close"><img class="close" src="http://mdops.com/wp-content/themes/mdops/images/close.png"></button>
 	</form>
 </div>
@@ -376,12 +261,14 @@
  for($i = 0; $i< count($affiliates); $i++)
 { ?>
 	<div class="affiliates">
-	<label class="affiliates_label"><?= $affiliates[$i]['name']?></label><arel="nofollow" href="<?= $affiliates[$i]['url'] ?>"><img class="affiliates_image" border="0" src="<?= $affiliates[$i]['img']?>"></a><img src="<?= $affiliates[$i]['tracker_id']?>" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+	<label class="affiliates_label orange-font"><?= $affiliates[$i]['name']?></label><a rel="nofollow" href="<?= $affiliates[$i]['url'] ?>"><img class="affiliates_image" border="0" src="<?= $affiliates[$i]['img']?>"></a><img src="<?= $affiliates[$i]['tracker_id']?>" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+	<h5 class='description'><?= $affiliates[$i]['description'] ?></h5><a rel="nofollow" class="btn btn-warning" href="<?= $affiliates[$i]['url'] ?>">GET IT NOW!<img src="<?= $affiliates[$i]['tracker_id']?>" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></a>
 	</div>
 <?php
 	}
  ?>
 </div>
+<div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -396,26 +283,18 @@
 	var contentHeight = wrap.offsetHeight;
 	var yOffset = window.pageYOffset; 
 	var y = yOffset + window.innerHeight;
-	// var a = 1200;
-	// console.log($(document).scrollTop());
-	// $(document).scroll(function(){
-	// if( y >= contentHeight
-	// 	// $(document).scrollTop() == scrollBottom
-	// 	){
-	// 	// Ajax call to get more dynamic data goes here
-	// 	$.get('/main/get_page_content', function(res){ 
-	// 		wrap.innerHTML += '<div class="newData">'+res+'</div>';
-	// 	});
-	// 	// a +=1200;
-	// }
-	// });
-	// if($(document).scrollTop() == a){
-	// 	// Ajax call to get more dynamic data goes here
-	// 	$.get('/main/get_page_content', function(res){ 
-	// 		wrap.innerHTML += '<div class="newData">'+res+'</div>';
-	// 	});
-	// 	a +=1200;
-	// }
+	var a = 1000;
+	$(document).scroll(function(){
+	if($(document).scrollTop() == a){
+		console.log($(document).scrollTop());
+		// Ajax call to get more dynamic data goes here
+		$.get('/main/get_page_content', function(res){ 
+			wrap.innerHTML += '<div class="newData">'+res+'</div>';
+		});
+		a +=1200;
+	};
+	});
+
 	var status = document.getElementById('status_infinite');
 	status.innerHTML = contentHeight+" | "+y;
 }
@@ -425,13 +304,25 @@ window.onscroll = yHandler;
 		$(".email_subscription").hide();
 		return false;
 	});
+	$(".email_button").click(function(){
+		$.get('/main/email_subscription', function(res){
+			console.log(res);
+		});
+		$(".email_subscription").hide();
+		return false;
+	});
+	$(".register").submit(function(){
+		$.get("/main/login", function(res){
+			console.log(res);
+		});
+		return false;
+	});
 	});
 
 	
 </script>
 	<?php $this->load->view("test");
 	 ?>
-
 
 </body>
 </html>

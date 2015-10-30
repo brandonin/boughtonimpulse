@@ -30,5 +30,13 @@ class User extends CI_Model {
    $values = array($id);
    return $this->db->query($query, $values)->row_array();
  }
+ public function email_subscription($data)
+ {
 
+   $query = "INSERT INTO email_subscriptions (email, created_at, updated_at)
+   values (?, NOW(), NOW())";
+   $values = array($data['email']);
+   return $this->db->query($query, $values);
+ }
 }
+?>

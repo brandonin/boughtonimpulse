@@ -1,0 +1,152 @@
+	.carousel {
+		width:500px;
+		display:inline-block;
+		margin-left:100px;
+	}
+	.auth-plain {
+	  padding-right: 0px;
+	  padding-left: 0px;
+	  padding-top: 0px;
+	}
+
+	.left-solid {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	}
+
+	.signup-panel {
+	  border-radius: 5px;
+	  padding: 15px;
+	  margin-top: 30px;
+	  margin-bottom: 30px;
+	  background: #fff;
+	}
+
+	.signup-panel a{
+	  color: #fff;
+	}
+
+	.signup-panel i {
+	  font-size: 30px;
+	  line-height: 50px;
+	  color: #999;
+	}
+	.signup-panel form input, .signup-panel form span {
+	  height: 50px;
+	}
+	.signup-panel .welcome {
+	  font-size: 26px;
+	  text-align: center;
+	  margin-left: 0;
+	}
+	.signup-panel p {
+	  font-size: 13px;
+	  font-weight: 200;
+	  text-align: center;
+	}
+	.signup-panel .button {
+	  margin-left: 35%;
+	}
+
+	.newusers {
+	  background: #fff;
+	}
+	.carousel_picture{
+		height:500px;
+		width:500px;
+	}
+	div#status_infinite{
+		position:fixed; 
+		font-size:24px;
+	}
+	div#wrap_infinite{
+		width:1200px; 
+		margin:20px 20px 20px 80px;
+	}
+	div.newData{
+/*		height:1000px; 
+		background:#09F;*/
+		margin:20px;
+	}
+	#status{
+		margin-left:80%;
+	}
+	.email_subscription{
+		margin-left: 25%;
+		padding:10px;
+		margin-top:50%;
+		width:280px;
+		display:inline-block;
+		height:80px;
+		background-color: #ffa500;
+		position: fixed;
+	}
+	.products{
+		padding:20px;
+	}
+	.close{
+		opacity:100;
+		height:25px;
+		width:25px;
+	}
+	.closed{
+
+	}
+	.affiliates_image{
+		height:300px;
+		width: 300px;
+	}
+	.affiliates{
+		display:inline-block;
+		width:310px;
+		vertical-align: top;
+		border: dashed 1px #fee;
+		margin:5px;
+
+	}
+	.affiliates_label{
+		width: 300px;
+		text-align: center;
+		display:block;
+		font-size: 1.5em;
+	}
+	.orange{
+		background-color: #ffa500;
+	}
+	.orange-font{
+		color:#ffa500;
+	}
+	#logo {
+		height:40px;
+		width:150px;
+	}
+	.navbar-brand{
+		font-style: italic;
+		vertical-align: top;
+		margin-top:0px;
+	}
+	.navbar-header{
+		height: 50px;
+	}
+	.container-fluid{
+		height:50px;
+	}
+	.description{
+		font-style: helvetica;
+		margin-left:5px;
+	}
+	.btn-warning {
+		margin-left:30%;
+	}
+	.box-shadow--16dp {
+    box-shadow: 0 16px 24px 2px rgba(0, 0, 0, .14), 0 6px 30px 5px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .2);
+    width:1100px;
+    margin-left:100px;
+    position:absolute;
+}
+	.yellow{
+		color: yellow;
+	}
+	.adsbygoogle{
+		margin-left:200px;
+	}
