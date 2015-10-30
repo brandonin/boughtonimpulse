@@ -1,4 +1,4 @@
-<?php for($i = 0; $i< count($test); $i++)
+<?php for($i = 0; $i< count($affiliates); $i++)
 { ?>
 	<img src='<?= $affiliates[$i]['url'] ?>'>
 <?php

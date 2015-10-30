@@ -9,24 +9,11 @@
 	<script type="text/javascript">
 	</script>
 	<style type="text/css">
-	.slider{
-		width:1000px;
-		height: 450px;
-		margin:20px auto;
-		/*background-color: white;*/
-		text-align: center;
+	.carousel {
+		width:500px;
+		display:inline-block;
+		margin-left:100px;
 	}
-	.slick-slide {
-		border-left: solid blue 10px;
-		text-align: center;
-		vertical-align: center;
-
-	}
-/*	.products {
-		height:300px;
-		width:300px;
-	}
-*/	
 	.auth-plain {
 	  padding-right: 0px;
 	  padding-left: 0px;
@@ -84,16 +71,51 @@
 		font-size:24px;
 	}
 	div#wrap_infinite{
-		width:1000px; 
-		margin:0px auto;
+		width:1200px; 
+		margin:20px 20px 20px 80px;
 	}
 	div.newData{
 /*		height:1000px; 
 		background:#09F;*/
-		margin:10px 0px;
+		margin:20px;
 	}
 	#status{
-		margin-left:80 %;
+		margin-left:80%;
+	}
+	.email_subscription{
+		margin-left: 25%;
+		padding:10px;
+		margin-top:50%;
+		width:280px;
+		display:inline-block;
+		height:80px;
+		background-color: orange;
+		position: fixed;
+	}
+	.products{
+		padding:20px;
+	}
+	.close{
+		opacity:100;
+		height:25px;
+		width:25px;
+	}
+	.closed{
+
+	}
+	.affiliates_image{
+		margin:10px;
+		height:300px;
+		width: 300px;
+	}
+	.affiliates{
+		display:inline-block;
+	}
+	.affiliates_label{
+		width: 300px;
+		text-align: center;
+		display:block;
+		font-size: 1.5em;
 	}
 </style>	
 </head>
@@ -263,8 +285,7 @@
 <!-- <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
 </fb:login-button> -->
 <div id="status"></div>
-<div class="container">
-	<div class="row">
+	<div class="row carousel">
 		<!-- Carousel -->
     	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
@@ -339,21 +360,24 @@
 			</a>
 		</div><!-- /carousel -->
 	</div>
+
+<div class="email_subscription">
+	<form action="#" method="post">
+		<label for="email"><span class="spooky">Sign up to our Spooky weekly email list!</span></label>
+		<input type="email" name="email" placeholder="email">
+		<input type="submit" value="Sign Up!">
+		<button class="close"><img class="close" src="http://mdops.com/wp-content/themes/mdops/images/close.png"></button>
+	</form>
 </div>
-<!-- 
-<?php 
-for($i = 0; $i< count($data); $i++)
-{ 
-	echo $data[$i]['url'];
-	}
- ?>
- -->
 
  <div id="status_infinite">0 | 0</div>
 <div id="wrap_infinite"> 
-<?php for($i = 0; $i< count($test); $i++)
+<?php
+ for($i = 0; $i< count($affiliates); $i++)
 { ?>
-	<img src='<?= $test[$i]['url'] ?>'>
+	<div class="affiliates">
+	<label class="affiliates_label"><?= $affiliates[$i]['name']?></label><arel="nofollow" href="<?= $affiliates[$i]['url'] ?>"><img class="affiliates_image" border="0" src="<?= $affiliates[$i]['img']?>"></a><img src="<?= $affiliates[$i]['tracker_id']?>" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" />
+	</div>
 <?php
 	}
  ?>
@@ -372,17 +396,35 @@ for($i = 0; $i< count($data); $i++)
 	var contentHeight = wrap.offsetHeight;
 	var yOffset = window.pageYOffset; 
 	var y = yOffset + window.innerHeight;
-	if(y >= contentHeight){
-		// Ajax call to get more dynamic data goes here
-		$.get('/main/get_page_content', function(res){ 
-			wrap.innerHTML += '<div class="newData">'+res+'</div>';
-		});
-		
-	}
+	// var a = 1200;
+	// console.log($(document).scrollTop());
+	// $(document).scroll(function(){
+	// if( y >= contentHeight
+	// 	// $(document).scrollTop() == scrollBottom
+	// 	){
+	// 	// Ajax call to get more dynamic data goes here
+	// 	$.get('/main/get_page_content', function(res){ 
+	// 		wrap.innerHTML += '<div class="newData">'+res+'</div>';
+	// 	});
+	// 	// a +=1200;
+	// }
+	// });
+	// if($(document).scrollTop() == a){
+	// 	// Ajax call to get more dynamic data goes here
+	// 	$.get('/main/get_page_content', function(res){ 
+	// 		wrap.innerHTML += '<div class="newData">'+res+'</div>';
+	// 	});
+	// 	a +=1200;
+	// }
 	var status = document.getElementById('status_infinite');
 	status.innerHTML = contentHeight+" | "+y;
 }
 window.onscroll = yHandler;
+
+	$(".close").click(function(){
+		$(".email_subscription").hide();
+		return false;
+	});
 	});
 
 	
